@@ -1,14 +1,16 @@
-/* html,body{
+html,body{
 	margin: 0;
 	padding: 0;
 	height:100%;
-} */
+}
 
-// .wi{font-weight: bold;}
+.wi{font-weight: bold;}
 
 body{
 	font-family:"Spicy Rice";
-	
+	color:#fff;
+	background-color:darkslategrey;
+
 	.cc{
 		position:absolute;
 		bottom:5px;
@@ -18,20 +20,35 @@ body{
 		font-size:1em;
 	}
 
-	ul > li > div{
-		display: flex;
-		align-items:center;
-		justify-content: center;
+	.hexagons{
+		$hexagons-max-width: 800px;
+		.hexagon{
+			background-color:orange;
+
+			.hover{display:none;}
+			&:hover{
+				cursor: pointer;
+				background-color:darkorange;
+
+				.front{display:none;}
+				.hover{display:initial;}
+			}
+
+		}
+
+		#title-h{font-size:6vw;}
+		#city-h{font-size:5vw;&.smaller{font-size: 4.5vw;}}
+		#icon-h{font-size: 15vw;}
+		#temp-h{font-size: 12vw;&.smaller{font-size: 10vw;}}
+
+		@media (min-width:$hexagons-max-width){
+			#title-h{font-size:45px;}
+			#city-h{font-size: 45px;&.smaller{font-size: 40px;}}
+			#icon-h{font-size: 120px;}
+			#temp-h{font-size: 105px;&.smaller{font-size:85px;}}
+		}
 	}
-	#city{
-		font-size:5vw;
-	}
-	#icon-h{
-		font-size: 15vw;
-	}
-	#temp-h{
-		font-size: 11vw;
-	}
+
 	
 }
 		
