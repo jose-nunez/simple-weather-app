@@ -37,22 +37,27 @@ var getLocation = ()=>{
 	});
 }
 
+var update = weather=>{
+	var temp=''+Math.round(weather.temp);
+	if(temp.length>2) document.getElementById('temp').style.fontSize = '9vw';
+	else document.getElementById('temp').style.fontSize = '11vw';
+	document.getElementById('temp').innerHTML= temp +'&#176;C';
 
-var run = ()=>{
-	getLocation()
-		.then(p=>({lat:p.coords.latitude,lng:p.coords.longitude}))
-		// .then(p=>{console.log(p);return p;})
+
+	document.getElementById('city').innerHTML= weather.city;
+	document.getElementById('icon').setAttribute('class','wi wi-owm-'+weather.time+'-'+weather.icon);
+}
+
+var parsePosition = (lat,lng)=>({lat:lat,lng:lng})
+
+
+var run = position=>{
+	(position? 
+		Promise.resolve(position) : 
+		getLocation().then(p=>({lat:p.coords.latitude,lng:p.coords.longitude}))
+	)
 		.then(p=>getTemp(p))
-		// .then(r=>console.log(r));
-		.then(r=>{
-
-
-			document.getElementById('temp').innerHTML=r.temp+'&#176;';
-			document.getElementById('city').innerHTML=r.city;
-			document.getElementById('icon').setAttribute('class','wi wi-owm-'+r.time+'-'+r.icon);
-			document.getElementById('icon').innerHTML=' | ';
-
-		});
+		.then(r=>update(r));
 }
 
 run();

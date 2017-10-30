@@ -1,63 +1,45 @@
-html,body{
+/* html,body{
 	margin: 0;
 	padding: 0;
 	height:100%;
-}
-*{box-sizing: border-box;}
-.wi{font-weight: bold;}
+} */
+
+// .wi{font-weight: bold;}
+
 body{
-	/* &.bkg1{background-image:url(https://2.bp.blogspot.com/-bsiBx2lzyF8/UfV2RYbXbhI/AAAAAAAAAsc/ims_j7EcHSI/s1600/Free%2Bdownload%2BNatural%2BWallpaper%2BBackground%2BLove-Island.png);}
-	&.bkg2{background-image:url(https://www.sepeb.com/forrest/forrest-001.jpg);}
-	&.bkg3{background-image:url(https://www.arranmountainfestival.co.uk/wp-content/uploads/Cir-Mhor-Castles-N-Goatfell.jpg);}
-	transition: background-image 0.1s ease-in-out;
-
-	background-size:cover;
-	background-position:center; */
-
 	font-family:"Spicy Rice";
-	font-size: 20px;
 	
-	padding: 30px;
-	display: flex;
-	align-items:center;
-	justify-content: center;
-
-
-	a{
-		color:inherit;
-		text-decoration:none;
-		&:hover{
-			text-decoration:underline;
-		}
-	}
-
 	.cc{
 		position:absolute;
 		bottom:5px;
-		background-color: rgba(100, 100, 100, 0.7);
+		background-color: orange;
 		border-radius: 5px;
 		padding:3px;
-		font-size:0.7em;
+		font-size:1em;
 	}
 
-	.container{
-		border-radius: 20px;
-		// background-color: rgba(100, 100, 100, 0.7);
-		max-width: 800px;
-		
+	ul > li > div{
 		display: flex;
-    	align-items: stretch;
-		text-align: center;
-		flex-direction: column;
-
-		padding: 30px;
-		#city,#icon,#temp{
+		align-items:center;
+		justify-content: center;
+	}
+	#city{
+		font-size:5vw;
+	}
+	#icon-h{
+		font-size: 15vw;
+	}
+	#temp-h{
+		font-size: 11vw;
+	}
+	
+}
+		
+		/* #city,#icon,#temp{
 			background: url(http://ste.india.com/sites/default/files/2015/11/17/432792-stars.jpg) no-repeat;
     		background-size: cover;
     		-webkit-background-clip: text;
     		-webkit-text-fill-color: transparent;
 		}
-		#city{font-size:4em;}
-		#weather-container{font-size:5em;}
-	}
-}
+		#city{font-size:4em;} */
+		
