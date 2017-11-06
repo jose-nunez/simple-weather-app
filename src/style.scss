@@ -2,6 +2,11 @@ html,body{
 	margin: 0;
 	padding: 0;
 	height:100%;
+	width:100%;
+}
+
+*{
+	user-select: none;
 }
 
 .wi{font-weight: bold;}
@@ -24,14 +29,12 @@ body{
 		$hexagons-max-width: 800px;
 		.hexagon{
 			background-color:orange;
-
-			.hover{display:none;}
-			&:hover{
+			&.button:hover{
 				cursor: pointer;
-				background-color:darkorange;
-
-				.front{display:none;}
-				.hover{display:initial;}
+				background-color:#2196F3;
+			}
+			&.button:active,&.button:focus{
+				background-color:orange;
 			}
 
 		}
@@ -47,16 +50,5 @@ body{
 			#icon-h{font-size: 120px;}
 			#temp-h{font-size: 105px;&.smaller{font-size:85px;}}
 		}
-	}
-
-	
+	}	
 }
-		
-		/* #city,#icon,#temp{
-			background: url(http://ste.india.com/sites/default/files/2015/11/17/432792-stars.jpg) no-repeat;
-    		background-size: cover;
-    		-webkit-background-clip: text;
-    		-webkit-text-fill-color: transparent;
-		}
-		#city{font-size:4em;} */
-		

@@ -1,6 +1,5 @@
 const OPEN_WEATHER_APP_URL = 'https://api.openweathermap.org/data/2.5/weather?units=metric&appid=c8f1cd3f0bcb5537c9394a7706a9d778';
 
-
 var getTemp= (location)=>{
 
 	return axios.get(OPEN_WEATHER_APP_URL,{
@@ -39,11 +38,18 @@ var getLocation = ()=>{
 	});
 }
 
-var update = weather=>{
-	var temp=''+Math.round(weather.temp);
-	if(temp.length>2) document.getElementById('temp-h').classList.add('smaller');
+var celunit = true;
+var temp;
+var updateTemp = (_temp,unit)=>{
+	_temp = Math.round(_temp);
+	if(_temp.length>2) document.getElementById('temp-h').classList.add('smaller');
 	else document.getElementById('temp-h').classList.remove('smaller');
-	document.getElementById('temp').innerHTML= temp +'&#176;C';
+	document.getElementById('temp').innerHTML= _temp +'°'+unit;
+};
+
+var update = weather=>{
+	temp = weather.temp;
+	updateTemp(temp,'C');
 
 	if(weather.city){
 		document.getElementById('city-h').classList.remove('smaller');
@@ -57,7 +63,18 @@ var update = weather=>{
 	document.getElementById('icon').setAttribute('class','wi wi-owm-'+weather.time+'-'+weather.icon);
 }
 
-var parsePosition = (lat,lng)=>({lat:lat,lng:lng})
+var switchUnit = ()=>{
+	if(!temp) return;
+	if(celunit){
+		// document.getElementById('switch-unit').innerHTML = '°C';
+		updateTemp(temp=temp*9/5+32,'F');
+	}
+	else{
+		// document.getElementById('switch-unit').innerHTML = '°F';
+		updateTemp(temp=(temp-32)*5/9,'C');
+	}
+	celunit=!celunit;
+}
 
 
 var run = position=>{
@@ -68,6 +85,8 @@ var run = position=>{
 		.then(p=>getTemp(p))
 		.then(r=>update(r));
 }
+
+var parsePosition = (lat,lng)=>({lat:lat,lng:lng})
 
 run();
 // run(parsePosition(76.438545, 104.304871));
